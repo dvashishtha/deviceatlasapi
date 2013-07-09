@@ -5,7 +5,7 @@ require 'deviceatlasapi/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "deviceatlasapi"
-  spec.version       = Deviceatlasapi::VERSION
+  spec.version       = DeviceAtlasApi::VERSION
   spec.authors       = ["Trevor Kimenye"]
   spec.email         = ["kimenye@gmail.com"]
   spec.description   = %q{Lets you access the DeviceAtlas cloud api}
