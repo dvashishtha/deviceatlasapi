@@ -1,6 +1,6 @@
 # Deviceatlasapi
 
-TODO: Write a gem description
+This gem allows you to access the DeviceAtlas API using a RubyGem. You need a valid DeviceAtlas API key available here - http://deviceatlas.com
 
 ## Installation
 
