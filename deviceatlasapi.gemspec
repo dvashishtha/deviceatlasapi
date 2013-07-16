@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kimenye@gmail.com"]
   spec.description   = %q{Lets you access the DeviceAtlas cloud api}
   spec.summary       = %q{Ruby gem to access DeviceAtlas cloud api}
-  spec.homepage      = "https://deviceatlas.com"
+  spec.homepage      = "https://github.com/kimenye/deviceatlasapi"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
