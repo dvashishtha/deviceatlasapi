@@ -3,6 +3,11 @@ require "uri"
 require 'httparty'
 
 module DeviceAtlasApi
+  module Rails
+    class Engine < ::Rails::Engine
+    end
+  end
+
   autoload :ControllerHelpers, 'deviceatlasapi/controller'
 
   def self.setup
