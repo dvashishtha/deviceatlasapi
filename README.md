@@ -36,7 +36,7 @@ Add the following line in the file "app/controllers/application.rb"
         include DeviceAtlasApi::ControllerHelpers
 
         def index
-            @device_info = get_device_info
+            @device_info = get_device_data
         end
     end
 
