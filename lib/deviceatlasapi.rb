@@ -34,11 +34,11 @@ module DeviceAtlasApi
     end
 
     def is_cookie_set? request
-      request.cookies[@cookie_name].nil?
+      !request.cookies[@cookie_name].nil?
     end
 
     def get_client_properties request
-      request.cookies['DAPROPS'].gsub /^"|"$/, ''
+      request.cookies[@cookie_name].gsub /^"|"$/, ''
     end
 
     private
