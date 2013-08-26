@@ -19,12 +19,26 @@ module DeviceAtlasApi
     def initialize request
       @user_agent = request.env['HTTP_USER_AGENT']
       @headers = prepare_headers request
+
+      if is_cookie_set?(request)
+        @headers['X-DA-Client-Properties'] = get_client_properties request
+      end
+
       @cloud_host = 'api.deviceatlascloud.com'
+      @cookie_name = 'DAPROPS'
     end
 
     def get_device_data
       url = prepare_url
-      HTTParty.get(url, @headers)["properties"]
+      HTTParty.get(url, :headers => @headers)["properties"]
+    end
+
+    def is_cookie_set? request
+      request.cookies[@cookie_name].nil?
+    end
+
+    def get_client_properties request
+      request.cookies['DAPROPS'].gsub /^"|"$/, ''
     end
 
     private
@@ -43,7 +57,8 @@ module DeviceAtlasApi
           'HTTP_X_BOLT_PHONE_UA' => request.env['HTTP_X_BOLT_PHONE_UA'],
           'HTTP_DEVICE_STOCK_UA' => request.env['HTTP_DEVICE_STOCK_UA'],
           'HTTP_X_UCBROWSER_DEVICE_UA' => request.env['HTTP_X_UCBROWSER_DEVICE_UA'],
-      }
+          'X-DA-Version' => 'java/1.2_2'
+      }.reject!{|k,v| v.nil?}
     end
 
     def prepare_url
