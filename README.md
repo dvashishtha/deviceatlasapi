@@ -26,6 +26,16 @@ TODO: Write usage instructions here
 
     Set the property 'DEVICE_ATLAS_LICENCE_KEY' in your environment variable
 
+## Testing
+
+If you'd like to simulate results from device atlas, set the following variables
+
+```    
+    DEBUG_DEVICE_ATLAS: true
+    DEBUG_DEVICE_ATLAS_MODEL: Safari - OS X
+    DEBUG_DEVICE_ATLAS_VENDOR: Apple
+```
+
 ###Controller Based
 
 We have only enabled a controller based flow at the moment - as this is the simplest use case required

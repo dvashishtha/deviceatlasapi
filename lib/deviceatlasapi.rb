@@ -29,8 +29,19 @@ module DeviceAtlasApi
     end
 
     def get_device_data
-      url = prepare_url
-      HTTParty.get(url, :headers => @headers)["properties"]
+      if !is_debug?
+        url = prepare_url
+        return HTTParty.get(url, :headers => @headers)["properties"]
+      else
+        return {
+          'model' => ENV['DEBUG_DEVICE_ATLAS_MODEL'],
+          'vendor' => ENV['DEBUG_DEVICE_ATLAS_VENDOR']
+        }
+      end
+    end
+
+    def is_debug?
+      ENV['DEBUG_DEVICE_ATLAS'] == 'true'
     end
 
     def is_cookie_set? request
