@@ -35,7 +35,8 @@ module DeviceAtlasApi
       else
         return {
           'model' => ENV['DEBUG_DEVICE_ATLAS_MODEL'],
-          'vendor' => ENV['DEBUG_DEVICE_ATLAS_VENDOR']
+          'vendor' => ENV['DEBUG_DEVICE_ATLAS_VENDOR'],
+          'marketingName' => ENV['DEBUG_DEVICE_ATLAS_MARKETING_NAME']
         }
       end
     end
